@@ -24,7 +24,8 @@
     * [Capitalize first character of each string in an array](#Capitalize-first-character-of-each-string-in-an-array)
     * [Add all numbers from 0 to given](#add-all-numbers-from-0-to-given)
 * [Single Linked List - SLL](singleLinkedList.js)
-* [Stack - SLL](stack.js)
+* [Stack](stack.js)
+* [Queue](queue.js)
 * [Binary Search Tree - BST with BFS & DFS ALgo](binarySearchTree.js)
 * For more DS like Queue, Stacks, Heaps please visit https://codepen.io/collection/GoOBJk
 * Coin Change

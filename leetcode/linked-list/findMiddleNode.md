@@ -33,25 +33,35 @@ let middle = list.findMiddleNode();
 // The middle node should have the value 4.
 ```
 <details>
-  <summary>Solution</summary>
+  <summary>LeetCode Solution</summary>
   
 ```javascript
   
-findMiddleNode() {
-  let slow = this.head,
-    fast = this.head;
-  while (fast?.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
-  return slow;
-}
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+    let slow = head, fast = head;
+    while(fast?.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+};
 ```
 </details>
 
 
 <details>
-  <summary>Complete Solution</summary>
+  <summary>Udemy Solution</summary>
 
 ```javascript
 class Node {

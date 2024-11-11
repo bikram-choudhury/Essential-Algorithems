@@ -147,6 +147,29 @@ console.log(`Test case 3 | Expected: ${expected3} | Result: ${result3}`);
 ```
 </details>
 
+<details>
+    <summary>Sort Stack using Recurssion</summary>
+    
+```javascript
+function insertTop(stack, topElement) {
+    if(stack.isEmpty() || topElement < stack.peek()) {
+        stack.push(topElement);
+        return;
+    }
+    const top = stack.pop();
+    insertTop(stack, topElement);
+    stack.push(top);
+}
+function sortStack(stack) {
+    if(!stack.isEmpty()) {
+        const topElement = stack.pop();
+        sortStack(stack);
+        insertTop(stack, topElement);
+    }
+}
+```
+</details>
+
 
 
 

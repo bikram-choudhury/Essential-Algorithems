@@ -129,3 +129,26 @@ function minValue(node) {
 
     return Math.min(node.value, minValue(node.left), minValue(node.right))
 }
+
+
+/** ================================================================================================================================= */
+// Check if a Binary tree (BT) is complete or not ?
+function isCompleteBinaryTree(node) {
+    if(node === null) return true;
+    const queue = [node];
+    let nullFound = false;
+
+    while(queue.length) {
+        const currentNode = queue.shift();
+        if(currentNode === null) {
+            nullFound = true;
+        } else {
+            if(nullFound) {
+                return false;
+            }
+            queue.push(currentNode.left, currentNode.right);
+        }
+    }
+    
+    return true;
+}

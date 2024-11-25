@@ -100,3 +100,32 @@ class BinarySearchTree {
         return data;
     }
 }
+/** ================================================================================================================================= */
+// Check if a Binary Tree (BT) is a Binary Search Tree (BST) or not ?
+function isBinarySearchTree(node) {
+    if(node === null) return true;
+
+    if(maxValue(node.left) >= node.value) {
+        return false;
+    }
+
+    if(minValue(node.right) <= node.value) {
+        return false;
+    }
+    
+    return isBinarySearchTree(node.left) && isBinarySearchTree(node.right);
+}
+
+// find the maximum value of the left tree
+function maxValue(node) {
+    if(node === null) return -Infinity;
+
+    return Math.max(node.value, maxValue(node.left), maxValue(node.right));
+}
+
+// find the minimum value of the right truee
+function minValue(node) {
+    if(node === null) return Infinity;
+
+    return Math.min(node.value, minValue(node.left), minValue(node.right))
+}

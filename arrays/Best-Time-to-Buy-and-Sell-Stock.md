@@ -7,10 +7,12 @@ You want to maximize your profit by choosing a single day to buy one stock and c
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
 ### Example:
-**input: ** prices = [7,1,5,3,6,4]
-**output: ** 5
+**input:** prices = [7,1,5,3,6,4]
+
+**output:** 5
 
 **input:** prices = [7,6,4,3,1]
+
 **Output:** 0
 
 ### Solution
@@ -73,3 +75,23 @@ The maximum profit is `3`.
 
 This approach reduces the problem to a single loop (`O(n)`) instead of checking all combinations (`O(n²)`).
 
+
+<detail>
+  
+```js
+  function findMaxProfit(prices) {
+    let maxProfit = -Infinity, minPrice = Infinity, i =0;
+    while(i < prices.length) {
+        const price = prices[i];
+        if(price < minPrice) minPrice = price;
+        const profit = price - minPrice;
+        if(profit > maxProfit) maxProfit = profit;
+        i++;
+    }
+    return maxProfit < 0 ? 0: maxProfit;
+}
+
+console.log(findMaxProfit([7,1,5,3,6,4])); // 5
+console.log(findMaxProfit([7,6,4,3,1])); // 0
+```
+</detail>

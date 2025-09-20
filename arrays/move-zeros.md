@@ -51,3 +51,21 @@ Each element is visited at most twice—once by `i` and potentially once by `j`.
 
 ### Space Complexity:  
 - **O(1)**, since we are modifying the array in-place.
+
+<detail>
+
+```js
+var moveZeroes = function(nums) {
+    let i = 0, j = 0;
+    while(i < nums.length) {
+        const n = nums[i];
+        if(n != 0) {
+            [nums[j], nums[i]] = [nums[i], nums[j]];
+            j++;
+        }
+        i++;
+    }
+    return nums;
+};
+```
+</detail>

@@ -20,6 +20,79 @@ function bubbleSort(array) {
 console.log(bubbleSort([3, 15, 5, 2, 27, 17])); // [ 2, 3, 5, 15, 17, 27 ]
 ```
 
+### Bubble Sort - Approach 2
+
+<details>
+  <summary>Explanation</summary>
+    
+    ### 🧮 Step-by-step from your image (n = 4)
+
+    Initial array:  `[5, 2, 4, 1]`
+
+    #### **Pass 1**
+    Compare adjacent elements:
+    
+    1️⃣ Compare (5, 2) → swap → `[2, 5, 4, 1]`  
+    2️⃣ Compare (5, 4) → swap → `[2, 4, 5, 1]`  
+    3️⃣ Compare (5, 1) → swap → `[2, 4, 1, 5]`
+    
+    ✅ After **3 swaps**, the largest element `5` is now at its correct place (last position).
+    
+    **So: 3 times (swaps)**
+    
+    ---
+    
+    #### **Pass 2**
+    Now we ignore the last element (`5`) since it's sorted.
+    
+    Array: `[2, 4, 1, 5]`
+    
+    1️⃣ Compare (2, 4) → no swap  
+    2️⃣ Compare (4, 1) → swap → `[2, 1, 4, 5]`
+    
+    ✅ After **2 swaps**, `4` is in its correct position.
+    
+    **So: 2 times**
+    
+    ---
+    
+    #### **Pass 3**
+    Now ignore the last two sorted elements (`4, 5`).
+    
+    Array: `[2, 1, 4, 5]`
+    
+    1️⃣ Compare (2, 1) → swap → `[1, 2, 4, 5]`
+    
+    ✅ After **1 swap**, `2` is now in the correct position.
+    
+    **So: 1 time**
+    
+    ---
+    
+    ✅ **Sorted array:** `[1, 2, 4, 5]`  
+    Total passes = 3  
+    Each pass reduces the unsorted part by one element.
+    
+</details>
+
+```javascript
+function bubbleSort(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    let didSwap = false;
+    for (let j = 0; j < array.length - 1 - i; j++) {
+      if (array[j] > array[j + 1]) {
+        const temp = array[j + 1];
+        array[j + 1] = array[j];
+        array[j] = temp;
+
+        didSwap = true;
+      }
+    }
+    if(!didSwap) break;
+  }
+  return array;
+}
+```
 
 ### insertion Sort
 

@@ -94,6 +94,47 @@ function bubbleSort(array) {
 }
 ```
 
+### Selection Sort
+
+Time Complexity: `O(n)` _[Best]_, `O(n^2)` _[Worst]_
+
+Space Complexity:: `O(1)`
+
+<details>
+  <summary>Explanation</summary>
+
+  **Selection Sort** works by repeatedly selecting the smallest element from the unsorted portion of the array and moving it to the beginning (the sorted portion).
+  
+  ### How it works:
+  - Loop through all elements of the array.
+  - Find the minimum element in the unsorted part.
+  - Swap this minimum element with the first unsorted element.
+  - Expand the sorted portion to the right and shrink the unsorted portion.
+
+This process continues until the entire array is sorted.
+  
+</details>
+
+```javascript
+function selectionSort(array) {
+  for(let i = 0; i < array.length -1; i++) {
+      let minIdx = i;
+      for(let j = i+1; j <= array.length - 1; j++) {
+          if(array[minIdx] > array[j]) {
+              minIdx = j;
+          }
+      }
+      if(i != minIdx) {
+          const temp = array[minIdx];
+          array[minIdx] = array[i];
+          array[i] = temp;
+      }
+  }
+  return array;
+}
+```
+
+
 ### insertion Sort
 
 Time Complexity: `O(n)` _[Best]_, `O(n^2)` _[Worst]_

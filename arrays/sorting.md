@@ -143,14 +143,16 @@ Space Complexity:: `O(1)`
 
 ```javascript
 function insertionSort(array) {
-  for(let i = 1; i < array.length; i++) {
-    const current = array[i];
-    for(var j = i - 1; j >= 0 && array[j] > current; j--) {
-      array[j + 1] = array[j]
+    for(let i = 1; i < array.length; i++) {
+        const current = array[i];
+        let prev = i - 1;
+        while(array[prev] > current && prev > -1) {
+            array[prev + 1] = array[prev];
+            prev = prev - 1;
+        }
+        array[prev + 1] = current;
     }
-    array[j + 1] = current;
-  }
-  return array;
+    return array;
 }
 
 console.log(insertionSort([3, 15, 5, 2, 27, 17, 1])); // [1, 2, 3, 5, 15, 17, 27]

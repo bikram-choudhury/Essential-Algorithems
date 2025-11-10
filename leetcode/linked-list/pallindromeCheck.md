@@ -67,3 +67,51 @@ var isPalindrome = function(head) {
 };
 ```
 </details>
+
+<details>
+  <summary>Simplified LeetCode Solution</summary>
+  
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function(head) {
+    // Find the middle element
+    let slow = fast = head;
+    while(fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    const mid = slow;
+
+    // Reverse the 2nd half of the list
+    let prev = null, current = mid;
+    while(current) {
+        const next = current.next;
+        current.next = prev;
+
+        prev = current;
+        current = next;
+    }
+
+    // Check from pallindrome
+    let firstList = head, secondList = prev;
+    while(secondList) {
+        if(firstList.val !== secondList.val) {
+            return false;
+        }
+        firstList = firstList.next;
+        secondList = secondList.next
+    }
+    return true;
+};
+```  
+</details>

@@ -50,14 +50,17 @@ var mergeTwoLists = function(list1, list2) {
         result.next = node;
         result = result.next;
     }
-    let list = list1 || list2;
+    const list = list1 || list2;
+    result.next = list;
+
+    /* let list = list1 || list2;
     while(list) {
         const value = list.val;
         const node = new ListNode(value);
         result.next = node;
         result = result.next;
         list = list.next;
-    }
+    } */
     return resultHead.next;
 };
 ```

@@ -50,9 +50,9 @@ var swapPairs = function(head) {
     next.next = current;
     prev.next = next;
 
-    current = next;
-    prev = next;
-    next = next.next;
+    prev = current;
+    current = prev.next;
+    next = current && current.next
   }
   return sentinental.next;
 };

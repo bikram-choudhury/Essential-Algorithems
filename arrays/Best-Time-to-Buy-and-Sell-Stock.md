@@ -95,3 +95,22 @@ console.log(findMaxProfit([7,1,5,3,6,4])); // 5
 console.log(findMaxProfit([7,6,4,3,1])); // 0
 ```
 </detail>
+
+<detail>
+
+  ```js
+    function maxProfit(prices) {
+      let minPrice = Infinity, maxProfit = -Infinity;
+      
+      for(const price of prices) {
+          minPrice = Math.min(price, minPrice);
+          const profit = price - minPrice;
+          maxProfit = Math.max(maxProfit, profit);
+      }
+      return maxProfit;
+  }
+  
+  console.log(maxProfit([7,1,5,3,6,4]));
+  console.log(maxProfit([7,6,4,3,1]));
+  ```
+</detail>

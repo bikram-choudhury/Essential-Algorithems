@@ -26,3 +26,20 @@ console.log(findMaxConsecutiveOnes([1,0,1,1,0,1])); // 2
 console.log(findMaxConsecutiveOnes([0,2, 0,1,0,1,1,1,0,1])); // 3
 console.log(findMaxConsecutiveOnes([0,2,0,1,0,1,1,1,0,1,1,2,3,4])); // 3
 ```
+
+```js
+var findMaxConsecutiveOnes = function(nums) {
+    let maxCount = 0, currentCount = 0, idx = 0;
+    while(idx < nums.length) {
+        if(nums[idx] === 1) {
+            currentCount++;
+        }
+        else {
+            maxCount = Math.max(maxCount, currentCount);
+            currentCount = 0;
+        }
+        idx++;
+    }
+    return Math.max(maxCount, currentCount);
+};
+```

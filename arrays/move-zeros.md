@@ -52,7 +52,7 @@ Each element is visited at most twice—once by `i` and potentially once by `j`.
 ### Space Complexity:  
 - **O(1)**, since we are modifying the array in-place.
 
-<detail>
+<details>
 
 ```js
 var moveZeroes = function(nums) {
@@ -68,4 +68,28 @@ var moveZeroes = function(nums) {
     return nums;
 };
 ```
-</detail>
+</details>
+
+<details>
+   
+   ```js
+   var moveZeroes = function(nums) {
+       if(!nums || nums.length < 2) return nums;
+       let idx1 = 0, idx2 = 0;
+       while(idx2 < nums.length) {
+           if(nums[idx2] === 0) {
+               idx2++;
+           } else {
+               const temp = nums[idx1];
+               nums[idx1] = nums[idx2];
+               nums[idx2] = temp;
+               idx1++
+           }
+       }
+       return nums;
+   }
+   
+   console.log(moveZeroes([0,1,0,3,12])); // [ 1, 3, 12, 0, 0 ]
+   console.log(moveZeroes([0])); // [0]
+   ```
+</details>
